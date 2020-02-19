@@ -16,7 +16,7 @@ def helicoid_map(X):
     helicoid_pt = np.array([x1*np.cos(x2), x1*np.sin(x2), x2])
     return helicoid_pt
 
-def plot_helicoid(angle=360, r=1, c=1, current_ax=None, style='surface'):
+def plot_helicoid(angle=360, r=1, c=1, current_ax=None, style='surface', title='$Helicoid$'):
     """ Apply helicoid mapping to sample grid and plot figure """
     if current_ax == None:
         fig = plt.figure(figsize=plt.figaspect(1))
@@ -37,7 +37,7 @@ def plot_helicoid(angle=360, r=1, c=1, current_ax=None, style='surface'):
         ax.plot_wireframe(x, y, z, rstride=2, cstride=2, linewidth=1, edgecolor='black')
     else:
         ax.plot_surface(x, y, z, cmap=plt.cm.Spectral)
-    ax.set_title('$Helicoid$');
+    ax.set_title(title);
     
 def integrand_helicoid(t, x, y, Q=np.eye(2)):
     """ Functional form of arc length integal for distance estimation """
@@ -67,7 +67,7 @@ def torus_map(X, R=5, r=1):
     torus_pt = np.array([x, y, z])
     return torus_pt
 
-def plot_torus(R=5, r=1, current_ax='None'):
+def plot_torus(R=5, r=1, current_ax='None', title='$Torus$'):
     """ Apply torus mapping to sample grid and plot figure """
     if current_ax == 'None':
         fig = plt.figure(figsize=plt.figaspect(1))
@@ -84,7 +84,7 @@ def plot_torus(R=5, r=1, current_ax='None'):
     z = r * np.sin(u)
 
     ax.plot_surface(x, y, z, cmap=plt.cm.Spectral)
-    ax.set_title('$Torus$')
+    ax.set_title(title)
     ax.set_xlabel('$x$')
     ax.set_ylabel('$y$')
     ax.set_zlabel('$z$')
@@ -115,7 +115,7 @@ def hyperboloid_dist(u, v, eps=1e-5):
     else:
         return dist
 
-def plot_hyperboloid(current_ax=None, style='surface'):
+def plot_hyperboloid(current_ax=None, style='surface', title='$Hyperboloid$'):
     """ Apply hyperboloid mapping to sample grid and plot figure """
     if current_ax == None:
         fig = plt.figure(figsize=plt.figaspect(1))
@@ -132,7 +132,7 @@ def plot_hyperboloid(current_ax=None, style='surface'):
         zcolors = Z - min(Z.flat)
         zcolors = zcolors/max(zcolors.flat)
         ax.plot_surface(X, Y, Z, rstride=1, cstride=1, facecolors=cm.Spectral(zcolors), linewidth=1)        
-    ax.set_title('$Hyperboloid$')
+    ax.set_title(title, size=20)
     ax.set_xlabel('$x$')
     ax.set_ylabel('$y$')
     ax.set_zlabel('$z$');

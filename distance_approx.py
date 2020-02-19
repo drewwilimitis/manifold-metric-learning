@@ -3,7 +3,7 @@ from scipy import integrate
 import sys
 my_path = 'C:\\Users\\dreww\\Desktop\\manifold-metric-learn' # path to utils folder
 sys.path.append(my_path)
-from manifold_instances import *
+from example_manifolds import *
 
 def approximate_distance(a, b, integrand, L=None, n=7, m=50, tol=1e-6):
     """
